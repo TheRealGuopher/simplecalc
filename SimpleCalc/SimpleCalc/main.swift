@@ -10,6 +10,22 @@ import Foundation
 
 public class Calculator {
     public func calculate(_ args: [String]) -> Int {
+        let op = "%"
+        switch op {
+        case "+":
+            return Int(args[0])! + Int(args[2])!
+        case "-":
+            return Int(args[0])! - Int(args[2])!
+        case "*":
+            return Int(args[0])! * Int(args[2])!
+        case "/":
+            return Int(args[0])! / Int(args[2])!
+        case "%":
+            let min = Int(args[0])! / Int(args[2])!
+            return Int(args[0])! - (min * Int(args[2])!)
+        default:
+            return 1
+        }
     }
     
     public func calculate(_ arg: String) -> Int {
