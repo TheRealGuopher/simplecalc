@@ -9,7 +9,7 @@
 import Foundation
 
 public class Calculator {
-    public func calculateThree(args: [String], operation: String) -> Int {
+    public func calculateThree(args: [String], operation: String) -> Double {
 //        if operation == "+" {
 //            return Int(args[0])! + Int(args[2])!
 //        } else if operation == "-" {
@@ -24,24 +24,26 @@ public class Calculator {
 //        } else {
 //            return -1
 //        }
+        let first = Double(args[0])!
+        let second = Double(args[2])!
         switch args[1] {
         case "+":
-            return Int(args[0])! + Int(args[2])!
+            return first + second
         case "-":
-            return Int(args[0])! - Int(args[2])!
+            return first - second
         case "*":
-            return Int(args[0])! * Int(args[2])!
+            return first * second
         case "/":
-            return Int(args[0])! / Int(args[2])!
+            return first / second
         case "%":
-            let min = Int(args[0])! / Int(args[2])!
-            return Int(args[0])! - (min * Int(args[2])!)
+            let min = first / second
+            return first - (min * second)
         default:
             return 1
         }
     }
 
-    public func calculate(_ args: [String]) -> Int {
+    public func calculate(_ args: [String]) -> Double {
         var expressions = [String]()
         for value in args {
             expressions.append(value)
@@ -56,21 +58,21 @@ public class Calculator {
             if args.count == 1 {
                 return 0
             }
-            var total: Int = 0
+            var total: Double = 0
             for (index, num) in args.enumerated() {
                 if index != args.count - 1 {
-                    total += Int(num)!
+                    total += Double(num)!
                 }
             }
-            return total / (args.count - 1)
+            return total / Double(args.count - 1)
         case "count":
-            return args.count - 1
+            return Double(args.count - 1)
         case "fact":
             if args.count == 1 {
                 return 0
             }
-            var index: Int = Int(args[0])!
-            var total: Int = 1
+            var index = Double(args[0])!
+            var total: Double = 1
             while index > 0 {
                 total *= index
                 index -= 1
@@ -81,7 +83,7 @@ public class Calculator {
         }
     }
 
-    public func calculate(_ arg: String) -> Int {
+    public func calculate(_ arg: String) -> Double {
         return calculate( arg.split(separator: " ").map({ substr in String(substr) }) )
     }
 }
