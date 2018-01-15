@@ -10,20 +10,6 @@ import Foundation
 
 public class Calculator {
     public func calculateThree(args: [String], operation: String) -> Int {
-//        if operation == "+" {
-//            return Int(args[0])! + Int(args[2])!
-//        } else if operation == "-" {
-//            return Int(args[0])! - Int(args[2])!
-//        } else if operation == "*" {
-//            return Int(args[0])! * Int(args[2])!
-//        } else if operation == "/" {
-//            return Int(args[0])! / Int(args[2])!
-//        } else if operation == "%" {
-//            let min = Int(args[0])! / Int(args[2])!
-//            return Int(args[0])! - (min * Int(args[2])!)
-//        } else {
-//            return -1
-//        }
         switch args[1] {
         case "+":
             return Int(args[0])! + Int(args[2])!
@@ -94,4 +80,3 @@ let first = readLine()!
 let operation = readLine()!
 let second = readLine()!
 print(Calculator().calculate([first, operation, second]))
-
