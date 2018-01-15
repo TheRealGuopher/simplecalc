@@ -9,23 +9,9 @@
 import Foundation
 
 public class Calculator {
-    public func calculateThree(args: [String], operation: String) -> Double {
-//        if operation == "+" {
-//            return Int(args[0])! + Int(args[2])!
-//        } else if operation == "-" {
-//            return Int(args[0])! - Int(args[2])!
-//        } else if operation == "*" {
-//            return Int(args[0])! * Int(args[2])!
-//        } else if operation == "/" {
-//            return Int(args[0])! / Int(args[2])!
-//        } else if operation == "%" {
-//            let min = Int(args[0])! / Int(args[2])!
-//            return Int(args[0])! - (min * Int(args[2])!)
-//        } else {
-//            return -1
-//        }
-        let first = Double(args[0])!
-        let second = Double(args[2])!
+    public func calculateThree(args: [String], operation: String) -> Float {
+        let first = Float(args[0])!
+        let second = Float(args[2])!
         switch args[1] {
         case "+":
             return first + second
@@ -36,14 +22,16 @@ public class Calculator {
         case "/":
             return first / second
         case "%":
-            let min = first / second
-            return first - (min * second)
+            let intFirst = Int(first)
+            let intSecond = Int(second)
+            let min = intFirst / intSecond
+            return Float(intFirst - (min * intSecond))
         default:
             return 1
         }
     }
 
-    public func calculate(_ args: [String]) -> Double {
+    public func calculate(_ args: [String]) -> Float {
         var expressions = [String]()
         for value in args {
             expressions.append(value)
@@ -58,21 +46,21 @@ public class Calculator {
             if args.count == 1 {
                 return 0
             }
-            var total: Double = 0
+            var total: Float = 0
             for (index, num) in args.enumerated() {
                 if index != args.count - 1 {
-                    total += Double(num)!
+                    total += Float(num)!
                 }
             }
-            return total / Double(args.count - 1)
+            return total / Float(args.count - 1)
         case "count":
-            return Double(args.count - 1)
+            return Float(args.count - 1)
         case "fact":
             if args.count == 1 {
                 return 0
             }
-            var index = Double(args[0])!
-            var total: Double = 1
+            var index = Float(args[0])!
+            var total: Float = 1
             while index > 0 {
                 total *= index
                 index -= 1
@@ -83,7 +71,7 @@ public class Calculator {
         }
     }
 
-    public func calculate(_ arg: String) -> Double {
+    public func calculate(_ arg: String) -> Float {
         return calculate( arg.split(separator: " ").map({ substr in String(substr) }) )
     }
 }
@@ -96,4 +84,3 @@ let first = readLine()!
 let operation = readLine()!
 let second = readLine()!
 print(Calculator().calculate([first, operation, second]))
-

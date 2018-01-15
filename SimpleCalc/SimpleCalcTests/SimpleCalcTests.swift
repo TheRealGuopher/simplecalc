@@ -58,9 +58,9 @@ class SimpleCalcTests: XCTestCase {
     
     func testSingleStringComplexOps() {
         let testsAndResults = [
-            ("1 2 3 4 5 count", 5),
-            ("1 2 3 4 5 avg", 3),
-            ("5 fact", 120)
+            ("1 2 3 4 5 count", Float(5.0)),
+            ("1 2 3 4 5 avg", Float(3.0)),
+            ("5 fact", Float(120.0))
         ]
         
         for tup in testsAndResults {
