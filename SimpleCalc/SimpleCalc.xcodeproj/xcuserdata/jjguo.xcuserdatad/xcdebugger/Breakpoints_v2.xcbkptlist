@@ -9,14 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SimpleCalc/main.swift"
-            timestampString = "537495282.876757"
+            filePath = "SimpleCalcTests/SimpleCalcTests.swift"
+            timestampString = "537734864.283632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "testSingleStringComplexOps()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
